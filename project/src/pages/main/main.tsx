@@ -1,5 +1,5 @@
 import React from 'react';
-import FilmCard from '../../components/film-card/Film-Card';
+import FilmCard from '../../components/film-card/film-card';
 
 type FilmsIds = {
   id: number;

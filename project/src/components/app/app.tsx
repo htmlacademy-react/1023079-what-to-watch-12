@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { AppRoute } from '../../consts';
+import { AppRoute, AuthorizationStatus } from '../../consts';
 import AddReview from '../../pages/add-review/AddReview';
 import FilmPage from '../../pages/film/film';
 import MainPage from '../../pages/main/main';
@@ -7,6 +7,7 @@ import MyList from '../../pages/my-list/myList';
 import NotFound from '../../pages/not-found/notFound';
 import Player from '../../pages/player/player';
 import SignIn from '../../pages/sign-in/signIn';
+import PrivateRoute from '../private-route/private-route';
 
 type FilmIds = {
   id: number;
@@ -40,7 +41,13 @@ export default function App({title, genre, year, filmIds}: AppScreenProps): JSX.
         />
         <Route
           path = {AppRoute.MyList}
-          element = {<MyList />}
+          element = {
+            <PrivateRoute
+              authorizationStatus = {AuthorizationStatus.NoAuth}
+            >
+              <MyList />
+            </PrivateRoute>
+          }
         />
         <Route
           path = {AppRoute.Film}

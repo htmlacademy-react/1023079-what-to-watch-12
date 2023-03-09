@@ -6,3 +6,9 @@ export const AppRoute = {
   AddReview: '/films/:id/review',
   Player: '/player/:id'
 } as const;
+
+export const AuthorizationStatus = {
+  Auth: 'AUTH',
+  NoAuth: 'NOAUTH',
+  Unknown: 'UNKNOWN'
+} as const;

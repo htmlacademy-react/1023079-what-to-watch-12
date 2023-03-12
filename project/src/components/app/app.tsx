@@ -9,19 +9,16 @@ import Player from '../../pages/player/player';
 import SignIn from '../../pages/sign-in/signIn';
 import PrivateRoute from '../private-route/private-route';
 import { HelmetProvider } from 'react-helmet-async';
-
-type FilmIds = {
-  id: number;
-}[]
+import { FilmType } from '../../types/film-type';
 
 type AppScreenProps = {
   title: string;
   genre: string;
   year: number;
-  filmIds: FilmIds;
+  films: FilmType[];
 }
 
-export default function App({title, genre, year, filmIds}: AppScreenProps): JSX.Element {
+export default function App({title, genre, year, films}: AppScreenProps): JSX.Element {
   return (
     <HelmetProvider>
       <BrowserRouter>
@@ -33,7 +30,7 @@ export default function App({title, genre, year, filmIds}: AppScreenProps): JSX.
                 title={title}
                 genre={genre}
                 year={year}
-                filmIds={filmIds}
+                films={films}
               />
             }
           />

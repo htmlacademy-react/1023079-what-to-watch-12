@@ -1,19 +1,16 @@
 import React from 'react';
 import FilmCard from '../../components/film-card/film-card';
 import Logo from '../../components/logo/logo';
-
-type FilmsIds = {
-  id: number;
-}[]
+import { FilmType } from '../../types/film-type';
 
 type MainPageProps = {
   title: string;
   genre: string;
   year: number;
-  filmIds: FilmsIds;
+  films: FilmType[];
 }
 
-export default function MainPage ({title, genre, year, filmIds}: MainPageProps): JSX.Element{
+export default function MainPage ({title, genre, year, films}: MainPageProps): JSX.Element{
   return (
     <React.Fragment>
       <section className="film-card">
@@ -108,7 +105,7 @@ export default function MainPage ({title, genre, year, filmIds}: MainPageProps):
           </ul>
 
           <div className="catalog__films-list">
-            {filmIds.map((id) => <FilmCard key={id.id}/>)}
+            {films.map((film) => <FilmCard key={film.id} name={film.name} posterImage={film.posterImage}/>)}
           </div>
 
           <div className="catalog__more">

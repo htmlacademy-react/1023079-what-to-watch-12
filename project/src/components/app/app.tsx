@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus } from '../../consts';
-import AddReview from '../../pages/add-review/AddReview';
+import AddReview from '../../pages/add-review/add-review';
 import FilmPage from '../../pages/film/film';
 import MainPage from '../../pages/main/main';
 import MyList from '../../pages/my-list/myList';

@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
 import { FILMS } from './mock';
+import { PromoFilm } from './types/promo-film-type';
 
-const PromoFilmInfo = {
+
+const PromoFilmInfo: PromoFilm = {
   title: 'The Grand Budapest Hotel',
   genre: 'Drama',
   year: 2014
@@ -16,9 +18,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <App
-      title={PromoFilmInfo.title}
-      genre={PromoFilmInfo.genre}
-      year={PromoFilmInfo.year}
+      promoFilm={PromoFilmInfo}
       films={FILMS}
     />
   </React.StrictMode>,

@@ -2,15 +2,17 @@ import React from 'react';
 import FilmCard from '../../components/film-card/film-card';
 import Logo from '../../components/logo/logo';
 import { FilmType } from '../../types/film-type';
+import { PromoFilm } from '../../types/promo-film-type';
 
-type MainPageProps = {
-  title: string;
-  genre: string;
-  year: number;
+type Props = {
   films: FilmType[];
+  promoFilm: PromoFilm;
 }
 
-export default function MainPage ({title, genre, year, films}: MainPageProps): JSX.Element{
+export default function MainPage (props: Props): JSX.Element{
+  const {title, genre, year} = props.promoFilm;
+  const films = props.films;
+
   return (
     <React.Fragment>
       <section className="film-card">

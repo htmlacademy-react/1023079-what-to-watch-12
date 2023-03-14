@@ -10,15 +10,14 @@ import SignIn from '../../pages/sign-in/signIn';
 import PrivateRoute from '../private-route/private-route';
 import { HelmetProvider } from 'react-helmet-async';
 import { FilmType } from '../../types/film-type';
+import { PromoFilm } from '../../types/promo-film-type';
 
-type AppScreenProps = {
-  title: string;
-  genre: string;
-  year: number;
+type Props = {
   films: FilmType[];
+  promoFilm: PromoFilm;
 }
 
-export default function App({title, genre, year, films}: AppScreenProps): JSX.Element {
+export default function App(props: Props): JSX.Element {
   return (
     <HelmetProvider>
       <BrowserRouter>
@@ -27,10 +26,8 @@ export default function App({title, genre, year, films}: AppScreenProps): JSX.El
             path = {AppRoute.Main}
             element = {
               <MainPage
-                title={title}
-                genre={genre}
-                year={year}
-                films={films}
+                films={props.films}
+                promoFilm={props.promoFilm}
               />
             }
           />

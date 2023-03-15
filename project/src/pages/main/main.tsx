@@ -1,18 +1,18 @@
 import React from 'react';
 import FilmCard from '../../components/film-card/film-card';
+import Logo from '../../components/logo/logo';
+import { FilmType } from '../../types/film-type';
+import { PromoFilm } from '../../types/promo-film-type';
 
-type FilmsIds = {
-  id: number;
-}[]
-
-type MainPageProps = {
-  title: string;
-  genre: string;
-  year: number;
-  filmIds: FilmsIds;
+type Props = {
+  films: FilmType[];
+  promoFilm: PromoFilm;
 }
 
-export default function MainPage ({title, genre, year, filmIds}: MainPageProps): JSX.Element{
+export default function MainPage (props: Props): JSX.Element{
+  const {title, genre, year} = props.promoFilm;
+  const films = props.films;
+
   return (
     <React.Fragment>
       <section className="film-card">
@@ -23,14 +23,7 @@ export default function MainPage ({title, genre, year, filmIds}: MainPageProps):
         <h1 className="visually-hidden">WTW</h1>
 
         <header className="page-header film-card__head">
-          <div className="logo">
-            <a className="logo__link">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
+          <Logo />
           <ul className="user-block">
             <li className="user-block__item">
               <div className="user-block__avatar">
@@ -114,7 +107,7 @@ export default function MainPage ({title, genre, year, filmIds}: MainPageProps):
           </ul>
 
           <div className="catalog__films-list">
-            {filmIds.map((id) => <FilmCard key={id.id}/>)}
+            {films.map((film) => <FilmCard key={film.id} name={film.name} posterImage={film.posterImage}/>)}
           </div>
 
           <div className="catalog__more">

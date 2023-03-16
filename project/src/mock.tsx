@@ -8,7 +8,7 @@ const film: FilmType = {
   previewImage: 'img/macbeth.jpg',
   backgroundImage: 'img/macbeth.jpg',
   backgroundColor: '#FFF',
-  videoLink: 'fsef',
+  videoLink: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
   previewVideoLink: 'sef',
   description: 'awdawd',
   rating: 8.0,
@@ -35,3 +35,4 @@ const makeFilmsArray = (count: number) => {
 };
 
 export const FILMS: FilmType[] = makeFilmsArray(FILMS_COUNT);
+

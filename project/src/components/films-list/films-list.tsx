@@ -8,19 +8,18 @@ type Props = {
 
 
 export default function FilmsList(props: Props): JSX.Element {
-  const films = props.films.slice(0, 8);
+  const films = props.films;
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [activeCard, setActiveCard] = useState(0);
 
   return (
     <div className="catalog__films-list">
       {films.map((film) => (
         <FilmCard
-          onMouseOver={() => film.id && setActiveCard(film.id)}
+          onMouseOver={() => setActiveCard(film.id)}
           key={film.id}
-          id={film.id}
-          name={film.name}
-          posterImage={film.posterImage}
+          film={film}
         />))}
     </div>
   );

@@ -5,9 +5,9 @@ const FILMS_COUNT = 20;
 const film: FilmType = {
   id: 1,
   name: 'adwdad',
-  posterImage: 'img/macbeth.jpg',
+  posterImage: 'img/what-we-do-in-the-shadows.jpg',
   previewImage: 'img/macbeth.jpg',
-  backgroundImage: 'img/macbeth.jpg',
+  backgroundImage: 'img/bg-the-grand-budapest-hotel.jpg',
   backgroundColor: '#FFF',
   videoLink: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
   previewVideoLink: 'sef',

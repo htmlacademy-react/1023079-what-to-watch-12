@@ -18,6 +18,8 @@ type Props = {
 }
 
 export default function App(props: Props): JSX.Element {
+  const myFilms = props.films.slice(0, 9);
+
   return (
     <HelmetProvider>
       <BrowserRouter>
@@ -39,23 +41,33 @@ export default function App(props: Props): JSX.Element {
             path = {AppRoute.MyList}
             element = {
               <PrivateRoute
-                authorizationStatus = {AuthorizationStatus.NoAuth}
+                authorizationStatus = {AuthorizationStatus.Auth}
               >
-                <MyList />
+                <MyList
+                  films={myFilms}
+                />
               </PrivateRoute>
             }
           />
           <Route
             path = {AppRoute.Film}
-            element = {<FilmPage />}
+            element = {<FilmPage films={props.films}/>}
           />
           <Route
             path = {AppRoute.AddReview}
-            element = {<AddReview />}
+            element = {
+              <AddReview
+                films={props.films}
+              />
+            }
           />
           <Route
             path = {AppRoute.Player}
-            element = {<Player />}
+            element = {
+              <Player
+                films={props.films}
+              />
+            }
           />
           <Route
             path = '*'

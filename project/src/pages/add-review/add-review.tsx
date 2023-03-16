@@ -1,7 +1,17 @@
 import { Helmet } from 'react-helmet-async';
 import Logo from '../../components/logo/logo';
+import { FilmType } from '../../types/film-type';
+import {useParams} from 'react-router-dom';
 
-export default function AddReview(): JSX.Element {
+type Props = {
+  films: FilmType[];
+}
+
+export default function AddReview(props: Props): JSX.Element {
+  const paramId = useParams().id;
+  const films = props.films;
+  const filmForReview = films.find((film) => film.id === Number(paramId));
+
   return (
     <section className="film-card film-card--full">
       <Helmet>
@@ -9,7 +19,7 @@ export default function AddReview(): JSX.Element {
       </Helmet>
       <div className="film-card__header">
         <div className="film-card__bg">
-          <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel"/>
+          <img src={filmForReview?.backgroundImage} alt={filmForReview?.name}/>
         </div>
         <h1 className="visually-hidden">WTW</h1>
         <header className="page-header">
@@ -17,7 +27,7 @@ export default function AddReview(): JSX.Element {
           <nav className="breadcrumbs">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
-                <a href="film-page.html" className="breadcrumbs__link">The Grand Budapest Hotel</a>
+                <a href="film-page.html" className="breadcrumbs__link">{filmForReview?.name}</a>
               </li>
               <li className="breadcrumbs__item">
                 <a className="breadcrumbs__link">Add review</a>
@@ -37,7 +47,7 @@ export default function AddReview(): JSX.Element {
           </ul>
         </header>
         <div className="film-card__poster film-card__poster--small">
-          <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327"/>
+          <img src={filmForReview?.posterImage} alt={filmForReview?.name} width="218" height="327"/>
         </div>
       </div>
       <div className="add-review">

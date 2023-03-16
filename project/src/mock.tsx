@@ -3,6 +3,7 @@ import { FilmType } from './types/film-type';
 const FILMS_COUNT = 20;
 
 const film: FilmType = {
+  id: 1,
   name: 'adwdad',
   posterImage: 'img/macbeth.jpg',
   previewImage: 'img/macbeth.jpg',
@@ -25,7 +26,7 @@ const film: FilmType = {
 
 const makeFilmsArray = (count: number) => {
   const result = [];
-  for(let i = 0; i < count; i++) {
+  for(let i = 1; i <= count; i++) {
     const newFilm = Object.assign({}, film);
     newFilm.id = i;
     result.push(newFilm);

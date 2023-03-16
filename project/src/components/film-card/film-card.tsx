@@ -1,17 +1,23 @@
 import React from 'react';
-import { FilmType } from '../../types/film-type';
+import {Link} from 'react-router-dom';
 
-type Props = Pick<FilmType, 'name' | 'posterImage'>
+type Props = {
+  name: string;
+  posterImage: string;
+  id: number;
+  onMouseOver: () => void;
+}
 
-export default function FilmCard({name, posterImage}: Props): JSX.Element{
+export default function FilmCard(props: Props): JSX.Element{
+  const {name, posterImage, id, onMouseOver} = props;
 
   return (
-    <article className="small-film-card catalog__films-card">
+    <article onMouseOver={onMouseOver} className="small-film-card catalog__films-card">
       <div className="small-film-card__image">
         <img src={posterImage} alt={name} width="280" height="175" />
       </div>
       <h3 className="small-film-card__title">
-        <a className="small-film-card__link" href="film-page.html">{name}</a>
+        <Link className="small-film-card__link" to={`films/${id}`}>{name}</Link>
       </h3>
     </article>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import FilmCard from '../../components/film-card/film-card';
+import FilmsList from '../../components/films-list/films-list';
 import Logo from '../../components/logo/logo';
 import { FilmType } from '../../types/film-type';
 import { PromoFilm } from '../../types/promo-film-type';
@@ -106,9 +106,7 @@ export default function MainPage (props: Props): JSX.Element{
             </li>
           </ul>
 
-          <div className="catalog__films-list">
-            {films.map((film) => <FilmCard key={film.id} name={film.name} posterImage={film.posterImage}/>)}
-          </div>
+          <FilmsList films={films}/>
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>

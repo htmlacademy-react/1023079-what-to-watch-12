@@ -1,7 +1,17 @@
 import { Helmet } from 'react-helmet-async';
 import Logo from '../../components/logo/logo';
+import {Link, useParams} from 'react-router-dom';
+import { FilmType } from '../../types/film-type';
 
-export default function FilmPage(): JSX.Element {
+type Props = {
+  films: FilmType[];
+}
+
+export default function FilmPage(props: Props): JSX.Element {
+  const films = props.films;
+  const paramId = useParams().id;
+  const filmOnPage = films.find((film) => film.id === Number(paramId));
+
   return (
     <>
       <section className="film-card film-card--full">
@@ -10,16 +20,18 @@ export default function FilmPage(): JSX.Element {
         </Helmet>
         <div className="film-card__hero">
           <div className="film-card__bg">
-            <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel"/>
+            <img src={filmOnPage?.backgroundImage} alt={filmOnPage?.name}/>
           </div>
           <h1 className="visually-hidden">WTW</h1>
           <header className="page-header film-card__head">
             <Logo />
             <ul className="user-block">
               <li className="user-block__item">
-                <div className="user-block__avatar">
-                  <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-                </div>
+                <Link to='/mylist'>
+                  <div className="user-block__avatar">
+                    <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
+                  </div>
+                </Link>
               </li>
               <li className="user-block__item">
                 <a className="user-block__link">Sign out</a>
@@ -28,18 +40,20 @@ export default function FilmPage(): JSX.Element {
           </header>
           <div className="film-card__wrap">
             <div className="film-card__desc">
-              <h2 className="film-card__title">The Grand Budapest Hotel</h2>
+              <h2 className="film-card__title">{filmOnPage?.name}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">Drama</span>
-                <span className="film-card__year">2014</span>
+                <span className="film-card__genre">{filmOnPage?.genre}</span>
+                <span className="film-card__year">{filmOnPage?.released}</span>
               </p>
               <div className="film-card__buttons">
-                <button className="btn btn--play film-card__button" type="button">
-                  <svg viewBox="0 0 19 19" width="19" height="19">
-                    <use xlinkHref="#play-s"></use>
-                  </svg>
-                  <span>Play</span>
-                </button>
+                <Link to={`/player/${paramId ? paramId : ''}`}>
+                  <button className="btn btn--play film-card__button" type="button">
+                    <svg viewBox="0 0 19 19" width="19" height="19">
+                      <use xlinkHref="#play-s"></use>
+                    </svg>
+                    <span>Play</span>
+                  </button>
+                </Link>
                 <button className="btn btn--list film-card__button" type="button">
                   <svg viewBox="0 0 19 20" width="19" height="20">
                     <use xlinkHref="#add"></use>
@@ -47,7 +61,7 @@ export default function FilmPage(): JSX.Element {
                   <span>My list</span>
                   <span className="film-card__count">9</span>
                 </button>
-                <a href="add-review.html" className="btn film-card__button">Add review</a>
+                <Link to={`/films/${paramId ? paramId : ''}/review`} className="btn film-card__button">Add review</Link>
               </div>
             </div>
           </div>

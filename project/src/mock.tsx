@@ -3,12 +3,13 @@ import { FilmType } from './types/film-type';
 const FILMS_COUNT = 20;
 
 const film: FilmType = {
+  id: 1,
   name: 'adwdad',
-  posterImage: 'img/macbeth.jpg',
+  posterImage: 'img/what-we-do-in-the-shadows.jpg',
   previewImage: 'img/macbeth.jpg',
-  backgroundImage: 'img/macbeth.jpg',
+  backgroundImage: 'img/bg-the-grand-budapest-hotel.jpg',
   backgroundColor: '#FFF',
-  videoLink: 'fsef',
+  videoLink: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
   previewVideoLink: 'sef',
   description: 'awdawd',
   rating: 8.0,
@@ -25,7 +26,7 @@ const film: FilmType = {
 
 const makeFilmsArray = (count: number) => {
   const result = [];
-  for(let i = 0; i < count; i++) {
+  for(let i = 1; i <= count; i++) {
     const newFilm = Object.assign({}, film);
     newFilm.id = i;
     result.push(newFilm);
@@ -35,3 +36,4 @@ const makeFilmsArray = (count: number) => {
 };
 
 export const FILMS: FilmType[] = makeFilmsArray(FILMS_COUNT);
+

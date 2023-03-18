@@ -1,12 +1,24 @@
 import { Helmet } from 'react-helmet-async';
+import { useParams } from 'react-router-dom';
+import { FilmType } from '../../types/film-type';
+import Logo from '../../components/logo/logo';
 
-export default function Player(): JSX.Element {
+type Props = {
+  films: FilmType[];
+}
+
+export default function Player(props: Props): JSX.Element {
+  const paramId = useParams().id;
+  const films = props.films;
+  const filmForPlayer = films.find((film) => film.id === Number(paramId));
+
   return (
     <div className="player">
+      <Logo />
       <Helmet>
         <title>Плеер</title>
       </Helmet>
-      <video src="#" className="player__video" poster="img/player-poster.jpg"></video>
+      <video src={filmForPlayer?.videoLink} className="player__video" poster="img/player-poster.jpg"></video>
 
       <button type="button" className="player__exit">Exit</button>
 

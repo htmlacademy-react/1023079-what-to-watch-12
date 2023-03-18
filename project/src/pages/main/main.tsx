@@ -1,8 +1,9 @@
 import React from 'react';
-import FilmCard from '../../components/film-card/film-card';
+import FilmsList from '../../components/films-list/films-list';
 import Logo from '../../components/logo/logo';
 import { FilmType } from '../../types/film-type';
 import { PromoFilm } from '../../types/promo-film-type';
+import { Link } from 'react-router-dom';
 
 type Props = {
   films: FilmType[];
@@ -26,9 +27,11 @@ export default function MainPage (props: Props): JSX.Element{
           <Logo />
           <ul className="user-block">
             <li className="user-block__item">
-              <div className="user-block__avatar">
-                <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-              </div>
+              <Link to='/mylist'>
+                <div className="user-block__avatar">
+                  <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
+                </div>
+              </Link>
             </li>
             <li className="user-block__item">
               <a className="user-block__link">Sign out</a>
@@ -106,9 +109,7 @@ export default function MainPage (props: Props): JSX.Element{
             </li>
           </ul>
 
-          <div className="catalog__films-list">
-            {films.map((film) => <FilmCard key={film.id} name={film.name} posterImage={film.posterImage}/>)}
-          </div>
+          <FilmsList films={films}/>
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>

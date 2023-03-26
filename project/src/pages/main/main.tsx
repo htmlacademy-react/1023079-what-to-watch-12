@@ -1,12 +1,12 @@
 import React from 'react';
 import FilmsList from '../../components/films-list/films-list';
 import Logo from '../../components/logo/logo';
-import { FilmType } from '../../types/film-type';
+import { Film } from '../../types/film-type';
 import { PromoFilm } from '../../types/promo-film-type';
 import { Link } from 'react-router-dom';
 
 type Props = {
-  films: FilmType[];
+  films: Film[];
   promoFilm: PromoFilm;
 }
 

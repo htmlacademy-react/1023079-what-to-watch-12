@@ -1,8 +1,8 @@
-import { FilmType } from './types/film-type';
+import { Film } from './types/film-type';
 
 const FILMS_COUNT = 20;
 
-const film: FilmType = {
+const film: Film = {
   id: 1,
   name: 'adwdad',
   posterImage: 'img/what-we-do-in-the-shadows.jpg',
@@ -35,5 +35,5 @@ const makeFilmsArray = (count: number) => {
   return result;
 };
 
-export const FILMS: FilmType[] = makeFilmsArray(FILMS_COUNT);
+export const FILMS: Film[] = makeFilmsArray(FILMS_COUNT);
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { FilmType } from '../../types/film-type';
+import { Film } from '../../types/film-type';
 
 type Props = {
-  film: FilmType;
+  film: Film;
   onMouseOver: () => void;
 }
 

@@ -1,9 +1,9 @@
 import {useState} from 'react';
-import { FilmType } from '../../types/film-type';
+import { Film } from '../../types/film-type';
 import FilmCard from '../film-card/film-card';
 
 type Props = {
-  films: FilmType[];
+  films: Film[];
 }
 
 

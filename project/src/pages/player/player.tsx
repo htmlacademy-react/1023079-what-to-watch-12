@@ -1,10 +1,10 @@
 import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
-import { FilmType } from '../../types/film-type';
+import { Film } from '../../types/film-type';
 import Logo from '../../components/logo/logo';
 
 type Props = {
-  films: FilmType[];
+  films: Film[];
 }
 
 export default function Player(props: Props): JSX.Element {

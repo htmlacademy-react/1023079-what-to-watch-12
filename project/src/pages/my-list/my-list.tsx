@@ -1,10 +1,10 @@
 import { Helmet } from 'react-helmet-async';
 import Logo from '../../components/logo/logo';
-import { FilmType } from '../../types/film-type';
+import { Film } from '../../types/film-type';
 import FilmsList from '../../components/films-list/films-list';
 
 type Props = {
-  films: FilmType[];
+  films: Film[];
 }
 export default function MyList(props: Props): JSX.Element {
   const films = props.films;

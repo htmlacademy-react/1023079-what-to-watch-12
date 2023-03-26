@@ -1,11 +1,11 @@
 import { Helmet } from 'react-helmet-async';
 import Logo from '../../components/logo/logo';
-import { FilmType } from '../../types/film-type';
+import { Film } from '../../types/film-type';
 import {useParams} from 'react-router-dom';
 import Review from '../../components/add-review/review';
 
 type Props = {
-  films: FilmType[];
+  films: Film[];
 }
 
 export default function AddReview(props: Props): JSX.Element {

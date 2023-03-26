@@ -1,7 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
 import { Film } from '../../types/film-type';
-import Logo from '../../components/logo/logo';
 
 type Props = {
   films: Film[];
@@ -14,7 +13,6 @@ export default function Player(props: Props): JSX.Element {
 
   return (
     <div className="player">
-      <Logo />
       <Helmet>
         <title>Плеер</title>
       </Helmet>

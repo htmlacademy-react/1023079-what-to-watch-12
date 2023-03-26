@@ -17,7 +17,8 @@ export default function FilmsList(props: Props): JSX.Element {
     <div className="catalog__films-list">
       {films.map((film) => (
         <FilmCard
-          onMouseOver={() => setActiveCard(film.id)}
+          onMouseEnter={() => setActiveCard(film.id)}
+          onMouseLeave={()=> setActiveCard(0)}
           key={film.id}
           film={film}
         />))}

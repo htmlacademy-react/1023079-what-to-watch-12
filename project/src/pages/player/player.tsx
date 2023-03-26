@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { useParams } from 'react-router-dom';
+import useGetFilmOnPage from '../../hooks/useGetFilmOnPage';
 import { Film } from '../../types/film-type';
 
 type Props = {
@@ -7,16 +7,14 @@ type Props = {
 }
 
 export default function Player(props: Props): JSX.Element {
-  const paramId = useParams().id;
-  const films = props.films;
-  const filmForPlayer = films.find((film) => film.id === Number(paramId));
+  const film = useGetFilmOnPage(props.films) as Film;
 
   return (
     <div className="player">
       <Helmet>
         <title>Плеер</title>
       </Helmet>
-      <video src={filmForPlayer?.videoLink} className="player__video" poster="img/player-poster.jpg"></video>
+      <video src={film.videoLink} className="player__video" poster="img/player-poster.jpg"></video>
 
       <button type="button" className="player__exit">Exit</button>
 

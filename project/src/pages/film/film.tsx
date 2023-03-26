@@ -1,16 +1,15 @@
 import { Helmet } from 'react-helmet-async';
 import Logo from '../../components/logo/logo';
-import {Link, useParams} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import { Film } from '../../types/film-type';
+import useGetFilmOnPage from '../../hooks/useGetFilmOnPage';
 
 type Props = {
   films: Film[];
 }
 
 export default function FilmPage(props: Props): JSX.Element {
-  const films = props.films;
-  const paramId = useParams().id;
-  const filmOnPage = films.find((film) => film.id === Number(paramId));
+  const film = useGetFilmOnPage(props.films) as Film;
 
   return (
     <>
@@ -20,7 +19,7 @@ export default function FilmPage(props: Props): JSX.Element {
         </Helmet>
         <div className="film-card__hero">
           <div className="film-card__bg">
-            <img src={filmOnPage?.backgroundImage} alt={filmOnPage?.name}/>
+            <img src={film.backgroundImage} alt={film.name}/>
           </div>
           <h1 className="visually-hidden">WTW</h1>
           <header className="page-header film-card__head">
@@ -40,13 +39,13 @@ export default function FilmPage(props: Props): JSX.Element {
           </header>
           <div className="film-card__wrap">
             <div className="film-card__desc">
-              <h2 className="film-card__title">{filmOnPage?.name}</h2>
+              <h2 className="film-card__title">{film.name}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">{filmOnPage?.genre}</span>
-                <span className="film-card__year">{filmOnPage?.released}</span>
+                <span className="film-card__genre">{film.genre}</span>
+                <span className="film-card__year">{film.released}</span>
               </p>
               <div className="film-card__buttons">
-                <Link to={`/player/${paramId ? paramId : ''}`}>
+                <Link to={`/player/${film.id}`}>
                   <button className="btn btn--play film-card__button" type="button">
                     <svg viewBox="0 0 19 19" width="19" height="19">
                       <use xlinkHref="#play-s"></use>
@@ -61,7 +60,7 @@ export default function FilmPage(props: Props): JSX.Element {
                   <span>My list</span>
                   <span className="film-card__count">9</span>
                 </button>
-                <Link to={`/films/${paramId ? paramId : ''}/review`} className="btn film-card__button">Add review</Link>
+                <Link to={`/films/${film.id}/review`} className="btn film-card__button">Add review</Link>
               </div>
             </div>
           </div>

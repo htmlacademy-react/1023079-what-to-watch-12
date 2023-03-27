@@ -20,7 +20,7 @@ export default function FilmCardPlayer({videoSrc, posterSrc}: Props): JSX.Elemen
     <video
       poster={posterSrc}
       ref={playerRef}
-      style={{width: '280px', height: '100px'}}
+      style={{width: '280px', height: '175px'}}
     >
       <source src={videoSrc} />
     </video>

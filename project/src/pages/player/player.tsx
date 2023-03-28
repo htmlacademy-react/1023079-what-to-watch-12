@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import useGetFilmOnPage from '../../hooks/useGetFilmOnPage';
+import { useGetFilmOnPage } from '../../hooks/useGetFilmOnPage';
 import { Film } from '../../types/film-type';
 
 type Props = {

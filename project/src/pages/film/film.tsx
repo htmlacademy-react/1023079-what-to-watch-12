@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import Logo from '../../components/logo/logo';
 import {Link} from 'react-router-dom';
 import { Film } from '../../types/film-type';
-import useGetFilmOnPage from '../../hooks/useGetFilmOnPage';
+import { useGetFilmOnPage } from '../../hooks/useGetFilmOnPage';
 
 type Props = {
   films: Film[];

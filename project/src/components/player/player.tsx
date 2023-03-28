@@ -9,11 +9,13 @@ export default function FilmCardPlayer({videoSrc, posterSrc}: Props): JSX.Elemen
   const playerRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timeOut = setTimeout(() => {
       if (playerRef.current) {
         playerRef.current.play();
       }
     }, 1000);
+
+    return () => clearTimeout(timeOut);
   }, []);
 
   return (

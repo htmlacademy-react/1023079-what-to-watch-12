@@ -9,7 +9,7 @@ const film: Film = {
   previewImage: 'img/macbeth.jpg',
   backgroundImage: 'img/bg-the-grand-budapest-hotel.jpg',
   backgroundColor: '#FFF',
-  videoLink: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+  videoLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
   previewVideoLink: 'sef',
   description: 'awdawd',
   rating: 8.0,

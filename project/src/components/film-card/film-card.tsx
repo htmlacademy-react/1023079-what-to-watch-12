@@ -32,7 +32,7 @@ export default function FilmCard(props: Props): JSX.Element{
       className="small-film-card catalog__films-card"
     >
       {
-        isActive ? <FilmCardPlayer videoSrc={props.film.videoLink} posterSrc={props.film.posterImage} /> :
+        isActive ? <FilmCardPlayer videoSrc={props.film.videoLink} posterSrc={posterImage} /> :
           <div className="small-film-card__image">
             <img src={posterImage} alt={name} width="280" height="175" />
           </div>

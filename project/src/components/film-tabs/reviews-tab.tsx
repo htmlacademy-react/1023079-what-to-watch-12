@@ -6,7 +6,7 @@ type Props = {
   film: Film;
 }
 
-export default function ReviewTab({film}: Props): JSX.Element {
+export function ReviewTab({film}: Props): JSX.Element {
   const reviews = makeReviewsArray();
 
   return (

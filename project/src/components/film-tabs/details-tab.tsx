@@ -5,7 +5,7 @@ type Props = {
   film: Film;
 }
 
-export default function DetailsTab({film}: Props): JSX.Element {
+export function DetailsTab({film}: Props): JSX.Element {
   return (
     <>
       <nav className="film-nav film-card__nav">

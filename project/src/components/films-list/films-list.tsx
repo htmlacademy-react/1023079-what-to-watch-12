@@ -1,9 +1,9 @@
 import {useState} from 'react';
-import { FilmType } from '../../types/film-type';
+import { Film } from '../../types/film-type';
 import FilmCard from '../film-card/film-card';
 
 type Props = {
-  films: FilmType[];
+  films: Film[];
 }
 
 
@@ -17,7 +17,8 @@ export default function FilmsList(props: Props): JSX.Element {
     <div className="catalog__films-list">
       {films.map((film) => (
         <FilmCard
-          onMouseOver={() => setActiveCard(film.id)}
+          onMouseEnter={() => setActiveCard(film.id)}
+          onMouseLeave={()=> setActiveCard(0)}
           key={film.id}
           film={film}
         />))}

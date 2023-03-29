@@ -2,7 +2,7 @@ export const AppRoute = {
   Main: '/',
   SignIn: '/login',
   MyList: '/mylist',
-  Film: '/films/:id',
+  Film: '/films/:id/:tab',
   AddReview: '/films/:id/review',
   Player: '/player/:id'
 } as const;

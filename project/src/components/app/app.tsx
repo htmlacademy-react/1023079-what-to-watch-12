@@ -9,11 +9,11 @@ import Player from '../../pages/player/player';
 import SignIn from '../../pages/sign-in/sign-in';
 import PrivateRoute from '../private-route/private-route';
 import { HelmetProvider } from 'react-helmet-async';
-import { FilmType } from '../../types/film-type';
+import { Film } from '../../types/film-type';
 import { PromoFilm } from '../../types/promo-film-type';
 
 type Props = {
-  films: FilmType[];
+  films: Film[];
   promoFilm: PromoFilm;
 }
 

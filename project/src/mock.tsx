@@ -1,15 +1,15 @@
-import { FilmType } from './types/film-type';
+import { Film } from './types/film-type';
 
 const FILMS_COUNT = 20;
 
-const film: FilmType = {
+const film: Film = {
   id: 1,
   name: 'adwdad',
   posterImage: 'img/what-we-do-in-the-shadows.jpg',
   previewImage: 'img/macbeth.jpg',
   backgroundImage: 'img/bg-the-grand-budapest-hotel.jpg',
   backgroundColor: '#FFF',
-  videoLink: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+  videoLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
   previewVideoLink: 'sef',
   description: 'awdawd',
   rating: 8.0,
@@ -35,5 +35,5 @@ const makeFilmsArray = (count: number) => {
   return result;
 };
 
-export const FILMS: FilmType[] = makeFilmsArray(FILMS_COUNT);
+export const FILMS: Film[] = makeFilmsArray(FILMS_COUNT);
 

@@ -1,12 +1,13 @@
 import React from 'react';
 import FilmsList from '../../components/films-list/films-list';
 import Logo from '../../components/logo/logo';
-import { FilmType } from '../../types/film-type';
+import { Film } from '../../types/film-type';
 import { PromoFilm } from '../../types/promo-film-type';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 type Props = {
-  films: FilmType[];
+  films: Film[];
   promoFilm: PromoFilm;
 }
 
@@ -17,6 +18,9 @@ export default function MainPage (props: Props): JSX.Element{
   return (
     <React.Fragment>
       <section className="film-card">
+        <Helmet>
+          <title>WTW</title>
+        </Helmet>
         <div className="film-card__bg">
           <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
         </div>

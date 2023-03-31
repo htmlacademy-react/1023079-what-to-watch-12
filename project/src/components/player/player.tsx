@@ -11,6 +11,7 @@ export default function FilmCardPlayer({videoSrc, posterSrc}: Props): JSX.Elemen
   useEffect(() => {
     const timeOut = setTimeout(() => {
       if (playerRef.current) {
+        playerRef.current.volume = 0;
         playerRef.current.play();
       }
     }, 1000);
@@ -22,7 +23,7 @@ export default function FilmCardPlayer({videoSrc, posterSrc}: Props): JSX.Elemen
     <video
       poster={posterSrc}
       ref={playerRef}
-      style={{width: '280px', height: '175px'}}
+      style={{width: '280px', height: '168px'}}
     >
       <source src={videoSrc} />
     </video>

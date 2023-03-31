@@ -34,7 +34,7 @@ export function OverviewTab({film}: Props): JSX.Element {
 
         <p className="film-card__director"><strong>Director: {film.director}</strong></p>
 
-        <p className="film-card__starring"><strong>Starring: {film.actors?.join(', ')} and other</strong></p>
+        <p className="film-card__starring"><strong>Starring: {Array.isArray(film.actors) && film.actors?.join(', ')} and other</strong></p>
       </div>
     </>
   );

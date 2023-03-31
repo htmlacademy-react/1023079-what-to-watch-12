@@ -30,7 +30,7 @@ export function DetailsTab({film}: Props): JSX.Element {
           <p className="film-card__details-item">
             <strong className="film-card__details-name">Starring</strong>
             <span className="film-card__details-value">
-              {film.actors?.join(', ')}
+              {Array.isArray(film.actors) && film.actors.join(', ')}
             </span>
           </p>
         </div>

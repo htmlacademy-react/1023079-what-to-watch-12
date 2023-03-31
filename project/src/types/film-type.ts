@@ -16,4 +16,6 @@ export type Film = {
   genre: string;
   released: number;
   isFavorite: boolean;
+  actors: string[];
+  reviews: string[];
 }

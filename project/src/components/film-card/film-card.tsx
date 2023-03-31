@@ -6,8 +6,8 @@ import FilmCardPlayer from '../player/player';
 
 type Props = {
   film: Film;
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }
 
 export default function FilmCard(props: Props): JSX.Element{
@@ -16,12 +16,16 @@ export default function FilmCard(props: Props): JSX.Element{
   const [isActive, setIsActive] = useState(false);
 
   const mouseOverHandler = () => {
-    onMouseEnter();
+    if(onMouseEnter) {
+      onMouseEnter();
+    }
     setIsActive(true);
   };
 
   const mouseOutHandler = () => {
-    onMouseLeave();
+    if(onMouseLeave) {
+      onMouseLeave();
+    }
     setIsActive(false);
   };
 
@@ -38,7 +42,7 @@ export default function FilmCard(props: Props): JSX.Element{
           </div>
       }
       <h3 className="small-film-card__title">
-        <Link className="small-film-card__link" to={`/films/${id}`}>{name}</Link>
+        <Link className="small-film-card__link" to={`/films/${id}/overview`}>{name}</Link>
       </h3>
     </article>
   );
